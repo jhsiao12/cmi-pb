@@ -1,6 +1,16 @@
+
+
 ### Overview
 This project part of 2nd CMI-PB Prediction Challenge (https://www.cmi-pb.org/blog/prediction-challenge-overview/)
 It involves the analysis of pertussis vaccine immune response data, with a specific focus on predicting and ranking IgG-PT-D14-titer and IgG-PT-D14-titer fold change values. Analysis using various machine learning models.
+
+#### Task 1: 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=Task1_peng_comment.ipynb)
+
+#### Task 2: 
+
+TBD
 
 
 ### Project Structure
@@ -31,7 +41,10 @@ The final results are saved to a TSV file for reporting.
 ### Getting Started
 To run this project, follow these steps:
 Install the required dependencies listed in the requirements.txt file using the following command:
-'pip install -r requirements.txt'
+
+```bash
+pip install -r requirements.txt
+```
 
 
 ### Dependencies
