@@ -6,14 +6,12 @@ It involves the analysis of pertussis vaccine immune response data, with a speci
 
 #### Task 1.1: 
 
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=Task1_peng_comment.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=CMI_Task1.ipynb)
 
 
 #### Task 1.2: 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=CMI_Task1.ipynb)
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=Task1_peng_comment.ipynb)
 
 ### Project Structure
 1. **Data Loading and Cleaning**
