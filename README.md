@@ -6,7 +6,10 @@ It involves the analysis of pertussis vaccine immune response data, with a speci
 
 #### Task 1: 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/HEAD?labpath=Task1_peng_comment.ipynb)
+**NOTE**: needs to be update to use HEAD and not a particular commit before hitting production. This [MR](https://github.com/jhsiao12/cmi-pb/pull/1) also needs to be merged. 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhsiao12/cmi-pb/d0ae94098d237ad8250e90f8d873d6b933267dbb?labpath=Task1_peng_comment.ipynb)
+
 
 #### Task 2: 
 
