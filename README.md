@@ -1,5 +1,5 @@
 ### Overview
-This project part of 2nd CMI-PB Prediction Challenge (https://www.cmi-pb.org/blog/prediction-challenge-overview/)
+This project is part of the 2nd CMI-PB Prediction Challenge (https://www.cmi-pb.org/blog/prediction-challenge-overview/)
 It involves the analysis of pertussis vaccine immune response data, with a specific focus on predicting and ranking IgG-PT-D14-titer and IgG-PT-D14-titer fold change values. Analysis using various machine learning models.
 
 
