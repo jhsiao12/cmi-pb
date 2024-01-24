@@ -39,7 +39,7 @@ The final results are saved to a TSV file for reporting.
 
 
 ### Getting Started
-To run this project, follow these steps:
+To run this project locally, follow these steps:
 Install the required dependencies listed in the requirements.txt file using the following command:
 
 ```bash
