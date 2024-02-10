@@ -46,6 +46,9 @@ Install the required dependencies listed in the requirements.txt file using the 
 pip install -r requirements.txt
 ```
 
+When pushing commits format python code using 
+
+
 
 ### Dependencies
 * Python 3.x
