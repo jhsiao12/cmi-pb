@@ -14,11 +14,13 @@ def create_subdirectory(subdirectory='data'):
     else:
         print(f"Directory already exists: {directory_path}")
 
+
 def fetch_all_data(endpoints):
     """Fetch data from a list of API endpoints."""
     for endpoint in endpoints:
         print(f"Fetching data from {endpoint}")
         data = fetch_data(endpoint)
+
 
 def fetch_data(endpoint='', api_version=4):
     """Fetch data from a single API endpoint."""
@@ -61,7 +63,8 @@ def main():
                       '/plasma_cytokine_concentration',
                       '/specimen',
                       '/subject',
-                      '/pbmc_gene_expression']
+                      #   '/pbmc_gene_expression'
+                      ]
 
     data = fetch_all_data(data_endpoints)
     metadata = fetch_all_data(metadata_endpoints)
