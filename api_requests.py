@@ -1,7 +1,5 @@
 import requests
 import os
-import json
-import csv
 
 
 def create_subdirectory(subdirectory='data'):
@@ -24,6 +22,7 @@ def fetch_all_data(endpoints):
 
 def fetch_data(endpoint='', api_version=4):
     """Fetch data from a single API endpoint."""
+    
     url = f'https://www.cmi-pb.org/api/v{api_version}{endpoint}'
     headers = {
         'Accept': 'text/csv',
@@ -36,6 +35,41 @@ def fetch_data(endpoint='', api_version=4):
     else:
         filename = f"{endpoint.replace('/','')}.csv"
         write_data_to_csv(response.text, filename)
+
+
+def fetch_and_write_data_in_chunks(endpoint='', api_version=4):
+    """Fetch data from a single API endpoint with pagination."""
+    url = f'https://www.cmi-pb.org/api/v{api_version}{endpoint}'
+    
+    range_start = 0
+    range_step = 10000 
+    range_end = range_start + range_step - 1
+
+    filename = f"{endpoint.replace('/', '')}.csv"
+    path = f'data/{filename}'
+    
+    with open(path, 'wb') as file:
+        while True:
+            headers = {
+                'Accept': 'text/csv',
+                'Range': f'{range_start}-{range_end}'
+            }
+            response = requests.get(url, headers=headers)
+
+            if response.status_code == 200:
+                if not response.content.strip() or len(response.content.splitlines()) < range_step:
+                    print("Reached the end of the data.")
+                    break
+                
+                file.write(response.content)
+                range_start += range_step
+                range_end = range_start + range_step - 1
+            else:
+                print(f"Failed to fetch data: {response.status_code}: {response.text}")
+                break 
+
+    print(f"Data successfully written to {filename}")
+
 
 
 def write_data_to_csv(text, filename='data.json'):
@@ -63,11 +97,11 @@ def main():
                       '/plasma_cytokine_concentration',
                       '/specimen',
                       '/subject',
-                      #   '/pbmc_gene_expression'
                       ]
-
-    data = fetch_all_data(data_endpoints)
-    metadata = fetch_all_data(metadata_endpoints)
+    
+    fetch_all_data(data_endpoints)
+    fetch_and_write_data_in_chunks('/pbmc_gene_expression') 
+    # fetch_all_data(metadata_endpoints)
 
 
 if __name__ == "__main__":
