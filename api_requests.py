@@ -1,6 +1,7 @@
 import requests
 import os
 
+api_version = '4_1' # latest version, should be updated as API changes
 
 def create_subdirectory(subdirectory='data'):
     """Create a subdirectory if it doesn't exist."""
@@ -11,6 +12,9 @@ def create_subdirectory(subdirectory='data'):
         print(f"Created directory: {directory_path}")
     else:
         print(f"Directory already exists: {directory_path}")
+        print("Deleting existing files")
+        for filename in os.listdir(directory_path):
+            os.remove(os.path.join(directory_path, filename))
 
 
 def fetch_all_data(endpoints):
@@ -20,7 +24,7 @@ def fetch_all_data(endpoints):
         data = fetch_data(endpoint)
 
 
-def fetch_data(endpoint='', api_version=4):
+def fetch_data(endpoint=''):
     """Fetch data from a single API endpoint."""
     
     url = f'https://www.cmi-pb.org/api/v{api_version}{endpoint}'
@@ -37,12 +41,12 @@ def fetch_data(endpoint='', api_version=4):
         write_data_to_csv(response.text, filename)
 
 
-def fetch_and_write_data_in_chunks(endpoint='', api_version=4):
+def fetch_and_write_data_in_chunks(endpoint=''):
     """Fetch data from a single API endpoint with pagination."""
     url = f'https://www.cmi-pb.org/api/v{api_version}{endpoint}'
     
     range_start = 0
-    range_step = 10000 
+    range_step = 5000 
     range_end = range_start + range_step - 1
 
     filename = f"{endpoint.replace('/', '')}.csv"
@@ -97,12 +101,10 @@ def main():
                       '/plasma_cytokine_concentration',
                       '/specimen',
                       '/subject',
+                      '/pbmc_gene_expression?versioned_ensembl_gene_id=eq.ENSG00000277632.1'
                       ]
     
     fetch_all_data(data_endpoints)
-    fetch_and_write_data_in_chunks('/pbmc_gene_expression') 
-    # fetch_all_data(metadata_endpoints)
-
 
 if __name__ == "__main__":
     main()
